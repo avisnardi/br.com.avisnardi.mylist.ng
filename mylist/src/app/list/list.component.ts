@@ -1,18 +1,28 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Item } from "./item";
+import { ListService } from "./list.service";
 
 
 @Component ({
     selector: 'ml-list',
     templateUrl: 'list.component.html'
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
 
-    items: Item[] = [
-        {id: 1, name: 'Morena Tropicana'},
-        {id: 2, name: 'Eu só quero um xodó'},
-        {id: 3, name: 'Feira de Mangaio'},
-        
-];
+    constructor (private listService: ListService ) {
+
+    }
+    
+    items: Item[] = [];
+    
+    ngOnInit(): void {
+        // this.items = this.listService.listByID();
+
+        this.listService
+      .listByID()
+      .subscribe(items => {
+        this.items = items;
+      });
+    }
 
 }
