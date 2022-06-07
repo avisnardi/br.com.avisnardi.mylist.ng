@@ -4,6 +4,8 @@ import { Item } from "./item";
 
 
 const API = 'http://localhost:3000';
+
+
 @Injectable({ providedIn: 'root' })
 
 export class ListService {
@@ -20,7 +22,7 @@ export class ListService {
     listByID () {
         // return this.items;
 
-        return this.http
-            .get<Item[]>(API +  '/lista'); 
+        return this.http.get<Item[]>(API +  '/lista'); 
+        // return this.http.get<Item[]>(API +  '/catalog'); 
     }
 }
