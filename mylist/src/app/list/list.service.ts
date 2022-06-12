@@ -12,17 +12,8 @@ export class ListService {
 
     constructor(private http: HttpClient) {}
 
-    items: Item[] = [
-        {id: 1, name: 'Morena Tropicana'},
-        {id: 2, name: 'Eu só quero um xodó'},
-        {id: 3, name: 'Feira de Mangaio'},
-        
-];
-
     listByID () {
-        // return this.items;
 
-        return this.http.get<Item[]>(API +  '/lista'); 
-        // return this.http.get<Item[]>(API +  '/catalog'); 
+        return this.http.get<Item[]>(API +  '/catalog'); 
     }
 }
